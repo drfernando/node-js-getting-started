@@ -24,7 +24,7 @@ Desde cuando presenta la afectación: desde el 09/11/2021 */
   
   function parseMessage(req, res) {
 
-    console.log(req.body)    
+    console.log(req)    
 
     var message = req.body;
 
