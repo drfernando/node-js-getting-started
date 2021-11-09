@@ -9,6 +9,6 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/hola', function (req, res) {res.send('[GET]Saludos desde express')})
-  .post('/hola', function (req, res) {res.send('[POST]Saludos desde express')})
+  .post('/hola', function (req, res) {res.send('[POST]' + req.body)})
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
