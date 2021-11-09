@@ -24,10 +24,12 @@ Desde cuando presenta la afectación: desde el 09/11/2021 */
   
   function parseMessage(req, res) {
 
-    console.log(req)    
+    console.log(req)   
+    
+    console.log(req.body)
 
     var message = req.body;
-
+/* 
     if(message.includes("VI") && message.includes("Proveedor de Internet")
     && message.includes("Numero de telefono contacto") && message.includes("Proveedor de Internet")
     && message.includes("Ubicación") && message.includes("Falla")
@@ -36,7 +38,7 @@ Desde cuando presenta la afectación: desde el 09/11/2021 */
       res.send('Procesado exitosamente' + req.body)
     }else{
       res.send('Formato Invalido' + req.body)
-    }
+    } */
 
     
   }
