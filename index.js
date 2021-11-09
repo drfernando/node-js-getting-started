@@ -23,7 +23,8 @@ Cual es la afectación: No indica tecnología del equipo
 Desde cuando presenta la afectación: desde el 09/11/2021 */
   
   function parseMessage(req, res) {
-    
+
+    console.log(req.body)    
 
     var message = req.body;
 
