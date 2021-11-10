@@ -22,44 +22,44 @@ express()
     var message = req.body
 
     if(message.includes("VI") && message.includes("Proveedor de Internet")
-    && message.includes("Numero de telefono contacto") && message.includes("Proveedor de Internet")
-    && message.includes("Ubicación") && message.includes("Falla")
-    && message.includes("Cual es la afectación") 
+    && message.includes("Numero de telefono contacto") && message.includes("Ubicación") 
+    && message.includes("Falla") && message.includes("Cual es la afectación") 
     && message.includes("Desde cuando presenta la afectación")){
-      res.send('Procesado exitosamente' + req.body)
+      var startIndex = message.indexOf("VI:") + "VI:".length()
+      var endIndex = message.indexOf("Proveedor de Internet:")
+      var VIValue = message.substring(startIndex,endIndex).trim()
+      console.log(VIValue)
+      startIndex = message.indexOf("Proveedor de Internet:") + "Proveedor de Internet:".length()
+      endIndex = message.indexOf("Numero de telefono contacto:")
+      var Provider = message.substring(startIndex,endIndex).trim()
+      console.log(Provider)
+      startIndex = message.indexOf("Numero de telefono contacto:") + "Numero de telefono contacto:".length()
+      endIndex = message.indexOf("Ubicación:")
+      var Number = message.substring(startIndex,endIndex).trim()
+      console.log(Number)
+      startIndex = message.indexOf("Ubicación:") + "Ubicación:".length()
+      endIndex = message.indexOf("Falla:")
+      var Dir = message.substring(startIndex,endIndex).trim()
+      console.log(Dir)
+      startIndex = message.indexOf("Falla:") + "Falla:".length()
+      endIndex = message.indexOf("Cual es la afectación:")
+      var Problem = message.substring(startIndex,endIndex).trim()
+      console.log(Problem)
+      startIndex = message.indexOf("Cual es la afectación:") + "Cual es la afectación:".length()
+      endIndex = message.indexOf("Desde cuando presenta la afectación:")
+      var Descrip = message.substring(startIndex,endIndex).trim()
+      console.log(Descrip)
+      startIndex = message.indexOf("Desde cuando presenta la afectación:") + "Desde cuando presenta la afectación:".length()
+      endIndex = message.length()
+      var Date = message.substring(startIndex,endIndex).trim()
+      console.log(Date)      
+
+      res.send('Procesado exitosamente')
     }else{
-      res.send('Formato Invalido' + req.body)
+      res.send('Formato Invalido')
     }     
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-/* 
-  VI:  093910
-Nombre del agente: Zona Celular 2002
-Proveedor de Internet: Inter
-Numero de telefono contacto: 0414 1187638
-Ubicación : Cua 
-Municipio Urdaneta
-Falla: cvsc
-Cual es la afectación: No indica tecnología del equipo
-Desde cuando presenta la afectación: desde el 09/11/2021 */
+
+    
   
-  function parseMessage(req, res) {
-
-    console.log(req)   
-    
-    console.log(req.body)
-
-    var message = req.body;
-/* 
-    if(message.includes("VI") && message.includes("Proveedor de Internet")
-    && message.includes("Numero de telefono contacto") && message.includes("Proveedor de Internet")
-    && message.includes("Ubicación") && message.includes("Falla")
-    && message.includes("Cual es la afectación") 
-    && message.includes("Desde cuando presenta la afectación")){
-      res.send('Procesado exitosamente' + req.body)
-    }else{
-      res.send('Formato Invalido' + req.body)
-    } */
-
-    
-  }
