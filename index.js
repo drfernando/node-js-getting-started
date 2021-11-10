@@ -21,11 +21,15 @@ express()
 
     var message = req.body
 
-    if(message.includes("VI") && message.includes("Proveedor de Internet")
+    if(message.includes("VI") && message.includes("Nombre del agente") && message.includes("Proveedor de Internet")
     && message.includes("Numero de telefono contacto") && message.includes("Ubicación") 
     && message.includes("Falla") && message.includes("Cual es la afectación") 
     && message.includes("Desde cuando presenta la afectación")){
       var startIndex = message.indexOf("VI:") + "VI:".length
+      var endIndex = message.indexOf("Nombre del agente:")
+      var VIValue = message.substring(startIndex,endIndex).trim()
+      console.log(VIValue)
+      var startIndex = message.indexOf("Nombre del agente:") + "Nombre del agente:".length
       var endIndex = message.indexOf("Proveedor de Internet:")
       var VIValue = message.substring(startIndex,endIndex).trim()
       console.log(VIValue)
