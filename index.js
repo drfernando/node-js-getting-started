@@ -50,7 +50,7 @@ express()
       var Descrip = message.substring(startIndex,endIndex).trim()
       console.log(Descrip)
       startIndex = message.indexOf("Desde cuando presenta la afectación:") + "Desde cuando presenta la afectación:".length
-      endIndex = message.length()
+      endIndex = message.length
       var Date = message.substring(startIndex,endIndex).trim()
       console.log(Date)      
 
