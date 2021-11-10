@@ -71,7 +71,7 @@ express()
       Date = Date.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Date)      
 
-      res.send('Procesado exitosamente')
+      res.send('Procesado exitosamente: ' + VIValue + "/" + Name + "/" + Provider + "/" + Number + "/" + Dir + "/" + Problem + "/" + Descrip + "/" + Date)
     }else{
       res.send('Formato Invalido')
     }     
