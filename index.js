@@ -15,9 +15,6 @@ express()
   .get('/hola', function (req, res) {res.send('[GET]Saludos desde express')})
   .post('/hola', function (req, res) {
     
-    console.log(req)   
-    
-    console.log(req.body)
 
     var message = req.body
 
