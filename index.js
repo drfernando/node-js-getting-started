@@ -1,14 +1,9 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const { Pool } = require('pg')
-const pool = new Pool({
-  user: 'oiohqzcbynbpbp',
-  host: 'ec2-34-232-144-162.compute-1.amazonaws.com:5432',
-  database: 'deb16onbgnkepj',
-  password: '64f733b754c01bd82efe7b889901a3c8ba1e040d7bd7a406f6058cc9a82d19a4',
-  port: 5432,
-})
+const pg = require('pg')
+
+const conString = "postgres://oiohqzcbynbpbp:64f733b754c01bd82efe7b889901a3c8ba1e040d7bd7a406f6058cc9a82d19a4@ec2-34-232-144-162.compute-1.amazonaws.com:5432/deb16onbgnkepj"
 
 const text = `
     CREATE TABLE IF NOT EXISTS "reportes_aa" (
@@ -24,9 +19,18 @@ const text = `
 	    PRIMARY KEY ("id")
     );`
 
-pool.connect().query(text,(err,res) =>{
-  console.log(err, res)
-  pool.end()
+pg.connect(conString, function (err, client, done) {
+  if (err) {
+    return console.error('error fetching client from pool', err)
+  }
+  client.query(text, function (err, result) {
+    done()
+
+    if (err) {
+      return console.error('error happened during query', err)
+    }
+    console.log('created')
+  })
 })
 
 
