@@ -111,7 +111,7 @@ express()
       Date = Date.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Date) 
       pool.connect((err, client, done) => {
-        client.query('INSERT INTO reportes_aa (vi, a_name, i_provider, p_number, c_direction, r_failure, f_description, f_date) VALUES ($1, $2);',
+        client.query('INSERT INTO reportes_aa (vi, a_name, i_provider, p_number, c_direction, r_failure, f_description, f_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8);',
         [VIValue,Name,Provider,Number,Dir,Problem,Descrip,Date], function (err, result) {
           done()
       
