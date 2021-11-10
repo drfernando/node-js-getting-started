@@ -62,7 +62,7 @@ express()
         if (err) {
           res.send('Error en Base de Datos: ' + err)
         }
-        res.send(result)
+        res.send(result.rows)
       })
     })    
   })
