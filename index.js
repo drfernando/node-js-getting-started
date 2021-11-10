@@ -24,7 +24,7 @@ const text = `
 	    PRIMARY KEY ("id")
     );`
 
-pool.query(text,(err,res) =>{
+pool.connect().query(text,(err,res) =>{
   console.log(err, res)
   pool.end()
 })
