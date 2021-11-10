@@ -29,49 +29,49 @@ express()
       var startIndex = message.indexOf("VI:") + "VI:".length
       var endIndex = message.indexOf("Nombre del agente:")
       var VIValue = message.substring(startIndex,endIndex).trim()
-      VIValue = VIValue.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      VIValue = VIValue.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(VIValue)
 
       var startIndex = message.indexOf("Nombre del agente:") + "Nombre del agente:".length
       var endIndex = message.indexOf("Proveedor de Internet:")
       var Name = message.substring(startIndex,endIndex).trim()
-      Name = Name.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Name = Name.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Name)
 
       startIndex = message.indexOf("Proveedor de Internet:") + "Proveedor de Internet:".length
       endIndex = message.indexOf("Numero de telefono contacto:")
       var Provider = message.substring(startIndex,endIndex).trim()
-      Provider = Provider.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Provider = Provider.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Provider)
 
       startIndex = message.indexOf("Numero de telefono contacto:") + "Numero de telefono contacto:".length
       endIndex = message.indexOf("Ubicación:")
       var Number = message.substring(startIndex,endIndex).trim()
-      Number = Number.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Number = Number.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Number)
 
       startIndex = message.indexOf("Ubicación:") + "Ubicación:".length
       endIndex = message.indexOf("Falla:")
       var Dir = message.substring(startIndex,endIndex).trim()
-      Dir = Dir.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Dir = Dir.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Dir)
 
       startIndex = message.indexOf("Falla:") + "Falla:".length
       endIndex = message.indexOf("Cual es la afectación:")
       var Problem = message.substring(startIndex,endIndex).trim()
-      Problem = Problem.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Problem = Problem.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Problem)
 
       startIndex = message.indexOf("Cual es la afectación:") + "Cual es la afectación:".length
       endIndex = message.indexOf("Desde cuando presenta la afectación:")
       var Descrip = message.substring(startIndex,endIndex).trim()
-      Descrip = Descrip.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Descrip = Descrip.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Descrip)
 
       startIndex = message.indexOf("Desde cuando presenta la afectación:") + "Desde cuando presenta la afectación:".length
       endIndex = message.length
       var Date = message.substring(startIndex,endIndex).trim()
-      Date = Date.replace(/(?:\r\n|\r|\n)/g, '<br>')
+      Date = Date.replace(/(?:\r\n|\r|\n)/g, ' ')
       console.log(Date)      
 
       res.send('Procesado exitosamente')
