@@ -18,8 +18,18 @@ express()
     console.log(req)   
     
     console.log(req.body)
-    
-    res.send('[GET]Saludos desde express')  
+
+    var message = req.body
+
+    if(message.includes("VI") && message.includes("Proveedor de Internet")
+    && message.includes("Numero de telefono contacto") && message.includes("Proveedor de Internet")
+    && message.includes("Ubicación") && message.includes("Falla")
+    && message.includes("Cual es la afectación") 
+    && message.includes("Desde cuando presenta la afectación")){
+      res.send('Procesado exitosamente' + req.body)
+    }else{
+      res.send('Formato Invalido' + req.body)
+    }     
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 /* 
