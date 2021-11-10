@@ -109,9 +109,20 @@ express()
       endIndex = message.length
       var Date = message.substring(startIndex,endIndex).trim()
       Date = Date.replace(/(?:\r\n|\r|\n)/g, ' ')
-      console.log(Date)      
+      console.log(Date) 
+      pool.connect((err, client, done) => {
+        client.query('INSERT INTO reportes_aa (vi, a_name, i_provider, p_number, c_direction, r_failure, f_description, f_date) VALUES ($1, $2);',
+        [VIValue,Name,Provider,Number,Dir,Problem,Descrip,Date], function (err, result) {
+          done()
+      
+          if (err) {
+            res.send('Error en Base de Datos: ' + err)
+          }
+          res.send('Procesado exitosamente: ' + result)
+        })
+      })
 
-      res.send('Procesado exitosamente: ' + VIValue + "/" + Name + "/" + Provider + "/" + Number + "/" + Dir + "/" + Problem + "/" + Descrip + "/" + Date)
+      
     }else{
       res.send('Formato Invalido')
     }     
