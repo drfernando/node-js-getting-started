@@ -52,9 +52,21 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/hola', function (req, res) {res.send('[GET]Saludos desde express')})
-  .post('/hola', function (req, res) {
+  .get('/hola', function (req, res) {
+
+    pool.connect((err, client, done) => {
+      client.query('SELECT * FROM reportes_aa;'
+      , function (err, result) {
+        done()
     
+        if (err) {
+          res.send('Error en Base de Datos: ' + err)
+        }
+        res.send(result)
+      })
+    })    
+  })
+  .post('/hola', function (req, res) {
 
     var message = req.body
 
@@ -118,7 +130,7 @@ express()
           if (err) {
             res.send('Error en Base de Datos: ' + err)
           }
-          res.send('Procesado exitosamente: ' + JSON.stringify(result))
+          res.send('Procesado exitosamente')
         })
       })
 
