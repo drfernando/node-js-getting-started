@@ -1,7 +1,34 @@
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
-const bodyParser = require('body-parser')
+const { Pool } = require('pg')
+const pool = new Pool({
+  user: 'oiohqzcbynbpbp',
+  host: 'ec2-34-232-144-162.compute-1.amazonaws.com:5432',
+  database: 'deb16onbgnkepj',
+  password: '64f733b754c01bd82efe7b889901a3c8ba1e040d7bd7a406f6058cc9a82d19a4',
+  port: 5432,
+})
+
+const text = `
+    CREATE TABLE IF NOT EXISTS "reportes_aa" (
+	    "id" SERIAL,
+	    "vi" VARCHAR(100) NOT NULL,
+	    "a_name" VARCHAR(100) NOT NULL,
+      "i_provider" VARCHAR(100) NOT NULL,
+      "p_number" VARCHAR(100) NOT NULL,
+      "c_direction" VARCHAR(100) NOT NULL,
+      "r_failure" VARCHAR(100) NOT NULL,
+      "f_description" VARCHAR(100) NOT NULL,
+      "f_date" VARCHAR(100) NOT NULL,
+	    PRIMARY KEY ("id")
+    );`
+
+pool.query(text,(err,res) =>{
+  console.log(err, res)
+  pool.end()
+})
+
 
 
 express()
