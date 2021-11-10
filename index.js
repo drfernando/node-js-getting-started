@@ -118,7 +118,7 @@ express()
           if (err) {
             res.send('Error en Base de Datos: ' + err)
           }
-          res.send('Procesado exitosamente: ' + result)
+          res.send('Procesado exitosamente: ' + JSON.stringify(result))
         })
       })
 
