@@ -27,7 +27,19 @@ var pool = new pg.Pool({
     );` */
 
 
-const text = `DROP TABLE IF EXISTS "reportes_aa";`
+const text = `
+CREATE TABLE IF NOT EXISTS "reportes_aa" (
+  "id" SERIAL,
+  "vi" VARCHAR(100) NOT NULL,
+  "a_name" VARCHAR(100) NOT NULL,
+  "i_provider" VARCHAR(100) NOT NULL,
+  "p_number" VARCHAR(100) NOT NULL,
+  "c_direction" VARCHAR(100) NOT NULL,
+  "r_failure" VARCHAR(100) NOT NULL,
+  "f_description" VARCHAR(100) NOT NULL,
+  "f_date" VARCHAR(100) NOT NULL,
+  PRIMARY KEY ("id")
+);`
 
   pool.connect((err, client, done) => {
   if (err) {
