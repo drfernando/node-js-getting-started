@@ -9,7 +9,14 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .get('/hola', function (req, res) {res.send('[GET]Saludos desde express')})
-  .post('/hola', parseMessage)
+  .post('/hola', function (req, res) {
+    
+    console.log(req)   
+    
+    console.log(req.body)
+    
+    res.send('[GET]Saludos desde express')  
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 /* 
   VI:  093910
